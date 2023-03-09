@@ -27,4 +27,15 @@ public class UserInput : MonoBehaviour
     {
         return Input.GetKeyDown(KeyCode.Tab);
     }
+
+    private void Update() 
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+            #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+            #endif
+        }
+    }
 }
