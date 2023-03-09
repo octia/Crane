@@ -363,7 +363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531092725}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6, z: 2.6399999}
+  m_LocalPosition: {x: 0, y: -0.6, z: 4.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -492,7 +492,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600952491}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 1
   m_AngularDrag: 2
   m_UseGravity: 0
@@ -1531,7 +1531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attachedRigidBody: {fileID: 1762494763}
   _ropeLength: 8.92
-  _minRopeLength: 1
+  _minRopeLength: 4
   _maxRopeLength: 100
   _ropeChangeRate: 2
   _blockXRotation: 0
@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2abb9a1847a36069f429f6c9f4ab52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementForceMultiplier: 15
+  _movementForceMultiplier: 5
 --- !u!54 &1755604279
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1593,13 +1593,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755604275}
   serializedVersion: 2
-  m_Mass: 10
-  m_Drag: 1
-  m_AngularDrag: 0.05
+  m_Mass: 1000
+  m_Drag: 2
+  m_AngularDrag: 999
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &1762494758
 GameObject:

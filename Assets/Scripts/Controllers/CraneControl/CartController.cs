@@ -37,15 +37,14 @@ public class CartController : MonoBehaviour
         // Allow no local rotation, and no local movement except for the z axis
         // This is neccessary due to a unity bug(?), causing the rigidbody to not rotate along with the partent, after the parent has its center of mass reset
         transform.localPosition = new Vector3(_startingLocalPos.x, _startingLocalPos.y, transform.localPosition.z);
-        transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        transform.localRotation = Quaternion.identity;
         
 
         // Move the cart accoring to input
         if(!Mathf.Approximately(_forwardMovement, 0))
         {
-            _rigidbody.AddForce(transform.forward * _forwardMovement * _movementForceMultiplier);
+            _rigidbody.AddForce(_rigidbody.mass * transform.forward * _forwardMovement * _movementForceMultiplier);
         }
-        _rigidbody.MoveRotation(Quaternion.identity);
 
     }
 }

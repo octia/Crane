@@ -39,7 +39,7 @@ public class ArmController : MonoBehaviour
         if(!Mathf.Approximately(_armMovement, 0))
         {
             _rigidbody.MoveRotation(Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f));
-            _rigidbody.AddTorque(transform.up * _armMovement * _movementForceMultiplier);
+            _rigidbody.AddTorque(_rigidbody.mass * transform.up * _armMovement * _movementForceMultiplier);
         }
     }
 
