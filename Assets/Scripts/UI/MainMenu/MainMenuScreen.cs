@@ -9,13 +9,16 @@ public abstract class MainMenuScreen : MonoBehaviour
     protected Canvas _canvas;
     
     /// <summary>
-    /// This has to be called in the Start method, because the MainMenuController can be not initialized in Awake.
+    /// If overriden, please call this base implementation first.
     /// </summary>
-    protected virtual void Start() 
+    protected virtual void Start()
     {
         _canvas = GetComponent<Canvas>();
+        
+        // Register has to be called in the Start method, because the MainMenuController is initialized in Awake.
         Register();
     }
+
     private void Register()
     {
         MainMenuController.Instance.RegisterScreen(this);

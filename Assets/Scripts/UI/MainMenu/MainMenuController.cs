@@ -24,12 +24,22 @@ public class MainMenuController : MonoBehaviour
 
     private Dictionary<System.Type, MainMenuScreen> _screens = new Dictionary<System.Type, MainMenuScreen>();
 
+    /// <summary>
+    /// In order to be accessible, every UI screen has to be registered here. Should be called only once per inheriting class.
+    /// </summary>
+    /// <param name="screen">Screen to register.</param>
     public void RegisterScreen(MainMenuScreen screen)
     {
-        Debug.Log("Registering screen: " + screen.GetType());
         _screens.Add(screen.GetType(), screen);
     }
 
+    /// <summary>
+    /// Activates a screen and return it. Optionally disables the calling screen.
+    /// </summary>
+    /// <param name="caller">The calling screen - used to disable it</param>
+    /// <param name="disableCaller">Should the caller be disabled?</param>
+    /// <typeparam name="T">The type of the screen to be activated.</typeparam>
+    /// <returns>The activated screen.</returns>
     public T ActivateScreen<T>(MainMenuScreen caller, bool disableCaller = true) where T : MainMenuScreen
     {
         if (_screens.TryGetValue(typeof(T), out MainMenuScreen screen))

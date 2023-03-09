@@ -45,5 +45,7 @@ public class CartController : MonoBehaviour
         {
             _rigidbody.AddForce(transform.forward * _forwardMovement * _movementForceMultiplier);
         }
+        _rigidbody.MoveRotation(Quaternion.identity);
+
     }
 }
