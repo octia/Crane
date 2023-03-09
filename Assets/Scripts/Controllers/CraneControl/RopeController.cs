@@ -14,6 +14,12 @@ public class RopeController : MonoBehaviour
     [SerializeField]
     private float _ropeLength = 5f;
 
+    [SerializeField]
+    private float _minRopeLength = 1f;
+
+    [SerializeField]
+    private float _maxRopeLength = 100f;
+
     /// <summary>
     /// The speed at which the rope length changes per second.
     /// </summary>
@@ -58,6 +64,7 @@ public class RopeController : MonoBehaviour
         if (!Mathf.Approximately(_lengthChangeDir, 0))
         {
             _ropeLength += _lengthChangeDir * _ropeChangeRate * Time.fixedDeltaTime;
+            _ropeLength = Mathf.Clamp(_ropeLength, _minRopeLength, _maxRopeLength);
         }
     }
 
