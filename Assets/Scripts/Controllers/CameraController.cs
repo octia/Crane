@@ -14,6 +14,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private bool _followTarget = true;
 
+    [SerializeField]
+    private GameObject _camera;
     private void Update()
     {
         if (_followTarget && _target != null)
@@ -22,5 +24,9 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    public void SetActive(bool active)
+    {
+        _camera.SetActive(active);
+    }
 
 }

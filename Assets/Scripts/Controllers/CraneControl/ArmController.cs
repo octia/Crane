@@ -8,7 +8,7 @@ public class ArmController : MonoBehaviour
 
 
     [SerializeField]
-    [Range(0f, 100f)]
+    [Range(0f, 150f)]
     private float _movementForceMultiplier = 10f;
 
     private Rigidbody _rigidbody;
