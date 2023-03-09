@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ArmController : MonoBehaviour
 {
-    private Rigidbody _rigidbody;
 
 
 
@@ -12,13 +11,16 @@ public class ArmController : MonoBehaviour
     [Range(0f, 100f)]
     private float _movementForceMultiplier = 10f;
 
+    private Rigidbody _rigidbody;
+    
     private float _armMovement = 0f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _rigidbody.centerOfMass = Vector3.up;
+        _rigidbody.centerOfMass = Vector3.zero;
     }
     
 
@@ -36,9 +38,8 @@ public class ArmController : MonoBehaviour
     {
         if(!Mathf.Approximately(_armMovement, 0))
         {
-            //_rigidbody.angularVelocity = transform.up * _armMovement * _movementForceMultiplier;
+            _rigidbody.MoveRotation(Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f));
             _rigidbody.AddTorque(transform.up * _armMovement * _movementForceMultiplier);
-            //_rigidbody.AddForce(transform.up * _armMovement * _movementForceMultiplier * 100f);
         }
     }
 

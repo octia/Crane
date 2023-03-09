@@ -29,7 +29,7 @@ public class CraneController : MonoBehaviour
             // Update the movement values of all crane parts.
             _arm.SetMove(_input.GetArmMovement());
             _cart.SetMove(_input.GetCartMovement());
-            _rope.SetMove(_input.GetRopeMovement());
+            _rope.ChangeLength(_input.GetRopeMovement());
         }
     }
 
